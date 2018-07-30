@@ -38,10 +38,6 @@ public class Graph<T> {
         isDirected = directed;
     }
 
-    public Vertex getVertex(int id) {
-        return this.vertices.get(id);
-    }
-
     public void addEdge(int id1,  int id2, int weight) {
         Vertex vertex1, vertex2;
         if (this.vertices.containsKey(id1)) {
@@ -60,7 +56,7 @@ public class Graph<T> {
 
         this.edges.add(new Edge(vertex1, vertex2, weight, this.isDirected));
         vertex1.addAdjacentVertex(vertex2);
-        if (!this.isDirected) {
+        if (!this.isDirected()) {
             vertex2.addAdjacentVertex(vertex1);
         }
     }

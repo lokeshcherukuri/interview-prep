@@ -2,7 +2,7 @@ package trees;
 
 public class BinaryTree {
 
-    private TreeNode root;
+    TreeNode root;
 
     public BinaryTree() {
         this.root = null;
@@ -39,44 +39,6 @@ public class BinaryTree {
         return isBST(root.getLeft(), min, rootValue) && isBST(root.getRight(), rootValue, max);
     }
 
-    public void inOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-
-        inOrder(root.getLeft());
-        System.out.print(root.getValue() + " ");
-        inOrder(root.getRight());
-    }
-
-    public void preOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-
-        System.out.print(root.getValue() + " ");
-        preOrder(root.getLeft());
-        preOrder(root.getRight());
-    }
-
-    public void postOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-
-        postOrder(root.getLeft());
-        postOrder(root.getRight());
-        System.out.print(root.getValue() + " ");
-    }
-
-    public void levelOrder(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-
-
-    }
-
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         tree.root = new TreeNode(10);
@@ -89,14 +51,5 @@ public class BinaryTree {
         System.out.println("Size:" + tree.size(tree.root));
         System.out.println("Height:" + tree.height(tree.root));
         System.out.println("isBST:" + tree.isBST(tree.root, Integer.MIN_VALUE, Integer.MAX_VALUE));
-
-        System.out.print("\nInOrder:");
-        tree.inOrder(tree.root);
-
-        System.out.print("\nPreOrder:");
-        tree.preOrder(tree.root);
-
-        System.out.print("\nPostOrder:");
-        tree.postOrder(tree.root);
     }
 }
